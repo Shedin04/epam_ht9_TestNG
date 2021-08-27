@@ -139,7 +139,7 @@ public class Matrix {
      * @throws MatrixException if incompatible matrix sizes, returns message "Incompatible matrix sizes"
      */
     public Matrix multiplication(final Matrix matrix) throws MatrixException {
-        if (columns() != matrix.rows()) throw new MatrixException("Incompatible matrix sizes");
+        MatrixException.checkMultiMatrix(matrix, columncount);
         Matrix multimatrix = new Matrix(rows(), matrix.columns());
         for(int i=0;i<rows();i++)
         {

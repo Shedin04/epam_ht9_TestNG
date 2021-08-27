@@ -23,6 +23,10 @@ public class MatrixException extends Exception {
             if (matrix.rows() != rowcount || matrix.columns() != columncount) throw new MatrixException(INCOMP_MATRIX_SIZE);
     }
 
+    public static void checkMultiMatrix(Matrix matrix, int columncount) throws MatrixException {
+        if (columncount != matrix.rows()) throw new MatrixException("Incompatible matrix sizes");
+    }
+
     public static void checkCorrectIndex(int row, int column, double[][] actualmatrix) throws MatrixException {
         if (row >= actualmatrix.length || column >= actualmatrix[0].length || row < 0 || column < 0)
             throw new MatrixException(INCOMP_MATRIX_SIZE);
